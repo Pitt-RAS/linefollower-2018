@@ -19,6 +19,10 @@ int pitch = 4; //distance between IR sensors in mm
 int sensor_dist = 0;
 float error = 0;
 
+// calibration ranges
+int low1;
+int high1;
+
 //calculates distance between a given sensor and the middle of the array board
 //only for IR arrays with an odd number of sensors
 int sensor_distance(int sensorNum) {
@@ -45,9 +49,26 @@ void setup() {
   pinMode(AnalogInputPin2, INPUT);
   pinMode(AnalogInputPin3, INPUT);
   pinMode(AnalogInputPin4, INPUT);
-
+  calibration();
 }
 
+void calibration(){
+  int start = millis();
+  int current = millis();
+  low1 = analogRead(AnalogInputPin0);
+  high1 = low1;
+  int value1;
+  while((current-start)<5000){
+    value1 = analogRead(AnalogInputPin0);
+    if(value1 > high1){
+      high1 = value1;
+    }
+    else if(value1 < low1){
+      low1 = value1;
+    }
+    current = millis();
+  }
+}
 
 void loop() {
   // put your main code here, to run repeatedly:
@@ -57,9 +78,10 @@ void loop() {
   ir7 = analogRead(AnalogInputPin3);
   ir9 = analogRead(AnalogInputPin4);
 
-  calculateError();
+  ir1 = map(ir1,low1,high1,0,100);
+  ir1 = constrain(ir1,0,100);
 
-  Serial.println(ir1);  
+  Serial.println(ir1);
 
   delay(100);
 
