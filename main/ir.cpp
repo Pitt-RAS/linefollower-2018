@@ -7,13 +7,12 @@ class ir {
     int pitch_;
     char pins_[];
     int numSensors = 0;
+    int i = 0;
 
     public:
 
     ir::ir(char pins[num_sensors], int pitch]) {
         
-        int i;
-
         numSensors = sizeof(pins)/sizeof(char)
 
         for(i = 0; i <= numSensors; i++) {
@@ -46,6 +45,17 @@ class ir {
         for(i = 0; i < numSensors; i++) {
             irVal[i] = analogRead(pins_[i]);
         }
+    }
+
+    int ir::WeightedAverage(float arr[]) {
+        float sum_n = 0;
+        float sum_d = 0;
+        for (i=0; i < int(NUM_SENSORS/2); i++){
+            sum_n += (pitch*((NUM_SENSORS/2)-i)) * (arr[NUM_SENSORS - i] - arr[i]); 
+            sum_d += arr[i];
+        }
+        return sum_n/sum_d;
+
     }
 
     float ir::calibrate() {
