@@ -11,7 +11,7 @@ class ir {
 
     public:
 
-    ir::ir(char pins[num_sensors], int pitch]) {
+    ir::ir(char pins[num_sensors], int pitch) {
         
         numSensors = sizeof(pins)/sizeof(char);
 
