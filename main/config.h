@@ -13,8 +13,12 @@
 #define IR7_PIN A6
 #define IR8_PIN A7
 #define IR9_PIN A8
+#define NUM_SENSORS 9
 
 #define PITCH 4 //distance between IR sensors in mm
+#define CALIB_TO_LOW 1 //low value we want to map ir readings to
+#define CALIB_TO_HIGH 1000 //high value we want to map ir readings to
+#define CALIB_TIME //how long we want to calibrate for
 
 //Motor pins
 #define PWM_PIN_1 5
@@ -24,3 +28,13 @@
 #define MOTOR_R_1 A11
 #define MOTOR_R_2 A12
 #define MAX_SPEED 255
+
+//Controller parameters
+#define K_P 1
+#define K_I 1
+#define K_D .01
+#define I_LWR_BND -40
+#define I_UPR_BND 40
+#define SETPOINT 500
+
+#endif

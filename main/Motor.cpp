@@ -1,17 +1,21 @@
 #include "Motor.h"
-Motor::Motor(int IN1, int IN2, int PWM)
+#include <Arduino.h>
+
+Motor::Motor(int pin1, int pin2, int pwm_pin)
 {
-   this -> IN1 = IN1;
-   this -> IN2 = IN2;
-   this -> PWM = PWM;
+   pin1_ = pin1;
+   pin2_ = pin2;
+   pwm_pin_ = pwm_pin;
+   pinMode(pin1_, OUTPUT);
+   pinMode(pin2_, OUTPUT);
+   pinMode(pwm_pin_, OUTPUT);
 }
 
 void Motor::output(int dif)
 {
-  int speed = 150 + dif;
-  //int leftSpeed = 150 - dif;
-  analogWrite(PWM, speed);
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  delay(1000); 
+  int right_speed = MAX_SPEED + dif;
+  int left_speed = MAX_SPEED - dif;
+  analogWrite(pwm_pin, speed);
+  digitalWrite(pin1_, LOW);
+  digitalWrite(pin2_, HIGH); 
 }

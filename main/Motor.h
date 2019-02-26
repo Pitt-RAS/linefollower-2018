@@ -1,8 +1,8 @@
 class Motor
 {
   private:
-    int IN1, IN2, PWM;
+    int pin1_, pin2_, pwm_pin_;
   public:
-    Motor(int IN1, int IN2, int PWM);
+    Motor(int pin1, int pin2, int pwm_pin);
     void output(int dif);
-}
+};
