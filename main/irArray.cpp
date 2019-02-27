@@ -2,16 +2,16 @@
 #include <Arduino.h>
 
 class irArray {
-    
+
     int pitch_;
-    char pins_[];
+    int pins_[];
     int numSensors;
 
 public:
 
-    irArray::irArray(char pins[], int pitch) {
-        
-        numSensors = sizeof(pins)/sizeof(char);
+    irArray::irArray(int pins[], int pitch) {
+
+        numSensors = sizeof(pins)/sizeof(int);
 
         pitch_ = pitch;
 
@@ -41,7 +41,7 @@ public:
     float irArray::read() {
         float irVal[numSensors];
         int i = 0;
-        
+
         for(i = 0; i < numSensors; i++) {
             irVal[i] = constrain(analogRead(pins_[i]), calib_from_vals[i], calib_from_vals[i+1])
             irVal[i] = map(irVal[i], calib_from_vals[i], calib_from_vals[i+1], CALIB_TO_LOW, CALIB_TO_HIGH);
@@ -57,7 +57,7 @@ public:
         int currentTime = millis();
 
         int initVal = analogRead(AnalogInputPin0);
-        
+
         //intializing values in the array
         for(i = 0; i < numSensors*2; i++) {
             calibratedVals[i] = initVal;
