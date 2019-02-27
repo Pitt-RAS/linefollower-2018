@@ -20,11 +20,6 @@ public:
         }
     }
 
-    int irArray::sensorDistance(int sensorNum) {
-        sensor_dist = pitch*(5-sensorNum);
-        return sensor_dist;
-    }
-
     float irArray::interpolate(float irVal[]) {
         //interpolation code
         double num = 0;
@@ -76,9 +71,5 @@ public:
         }
 
     }
-
-    //map and constrain in read function
-    //irval= map(<irval>, calibratedVals[<sensorNum>], calibratedVals[<sensorNum+1>], 0, 100)
-    //irval= constrain(<irval>, 0, 100)
 
 };
