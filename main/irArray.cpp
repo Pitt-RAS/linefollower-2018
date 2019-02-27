@@ -15,7 +15,7 @@ public:
 
         pitch_ = pitch;
 
-        for(i = 0; i <= numSensors; i++) {
+        for(int i = 0; i <= numSensors; i++) {
             pins_[i] = pins[i];
         }
     }
@@ -30,7 +30,7 @@ public:
         double num = 0;
         double den = 0;
 
-        for(i = 0; i < int(numSensors/2); i++) {
+        for(int i = 0; i < int(numSensors/2); i++) {
             num += (pitch*((numSensors/2)-i)*(irVal[numSensors-i]-irVal[i]);
             den += irVal[i];
         }
@@ -40,9 +40,8 @@ public:
 
     float irArray::read() {
         float irVal[numSensors];
-        int i = 0;
 
-        for(i = 0; i < numSensors; i++) {
+        for(int i = 0; i < numSensors; i++) {
             irVal[i] = constrain(analogRead(pins_[i]), calib_from_vals[i], calib_from_vals[i+1])
             irVal[i] = map(irVal[i], calib_from_vals[i], calib_from_vals[i+1], CALIB_TO_LOW, CALIB_TO_HIGH);
         }
@@ -59,12 +58,12 @@ public:
         int initVal = analogRead(AnalogInputPin0);
 
         //intializing values in the array
-        for(i = 0; i < numSensors*2; i++) {
+        for(int i = 0; i < numSensors*2; i++) {
             calibratedVals[i] = initVal;
         }
 
         while((currentTime - startTime) < CALIB_TIME) {
-            for(i = 0; i < numSensors; i+=2) {
+            for(int i = 0; i < numSensors; i+=2) {
                 current_value = analogRead(pins_[i]);
                 if(current_value < calibratedVals[i]) {
                     calibratedVals[i] = current_value;
