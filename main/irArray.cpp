@@ -39,7 +39,7 @@ public:
         float irVal[numSensors];
         
         for(int i = 0; i < numSensors-1; i++) {
-            irVal[i] = constrain(analogRead(pins_[i]), calib_from_vals[i], calib_from_vals[i+1])
+            irVal[i] = constrain(analogRead(pins_[i]), calib_from_vals[i], calib_from_vals[i+1]);
             irVal[i] = map(irVal[i], calib_from_vals[i], calib_from_vals[i+1], CALIB_TO_LOW, CALIB_TO_HIGH);
         }
 

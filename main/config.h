@@ -18,7 +18,7 @@
 #define PITCH 4 //distance between IR sensors in mm
 #define CALIB_TO_LOW 1 //low value we want to map ir readings to
 #define CALIB_TO_HIGH 1000 //high value we want to map ir readings to
-#define CALIB_TIME //how long we want to calibrate for
+#define CALIB_TIME 5000 //how long we want to calibrate for
 
 //Motor pins
 #define PWM_PIN_1 5
