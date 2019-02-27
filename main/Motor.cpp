@@ -11,10 +11,8 @@ Motor::Motor(int pin1, int pin2, int pwm_pin)
    pinMode(pwm_pin_, OUTPUT);
 }
 
-void Motor::output(int dif)
+void Motor::output(int speed)
 {
-  int right_speed = MAX_SPEED + dif;
-  int left_speed = MAX_SPEED - dif;
   analogWrite(pwm_pin, speed);
   digitalWrite(pin1_, LOW);
   digitalWrite(pin2_, HIGH); 

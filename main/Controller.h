@@ -1,4 +1,4 @@
-#include "Arduino.h"
+#include <Arduino.h>
 
 class Controller{
 private:
@@ -13,7 +13,7 @@ public:
   float errorSum;
   float lastError;
   Controller(float kp, float ki, float kd, float i_lowerBound, float i_upperBound);
-  calc_speedDiff(const float target_pos, float current_pos);
+  int calc_speedDiff(const float target_pos, float current_pos);
 };
 
 
