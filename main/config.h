@@ -6,13 +6,13 @@
 //IR pins
 #define IR1_PIN A0
 #define IR2_PIN A1
-#define IR3_PIN A2
+#define IR3_PIN A1
 #define IR4_PIN A3
-#define IR5_PIN A4
+#define IR5_PIN A2
 #define IR6_PIN A5
-#define IR7_PIN A6
+#define IR7_PIN A3
 #define IR8_PIN A7
-#define IR9_PIN A8
+#define IR9_PIN A4
 #define NUM_SENSORS 9
 
 #define PITCH 4 //distance between IR sensors in mm
