@@ -1,5 +1,6 @@
 #include <irArray.h>
 #include <Arduino.h>
+#include <config.h>
 
 class irArray {
 
@@ -11,7 +12,7 @@ public:
 
     irArray::irArray(int pins[], int pitch) {
 
-        numSensors = sizeof(pins)/sizeof(int);
+        numSensors = NUM_SENSORS;
 
         pitch_ = pitch;
 
