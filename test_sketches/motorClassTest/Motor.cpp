@@ -13,7 +13,7 @@ Motor::Motor(int pin1, int pin2, int pwm_pin)
 
 void Motor::output(int speed)
 {
-  analogWrite(pwm_pin, speed);
+  analogWrite(pwm_pin_, speed);
   digitalWrite(pin1_, LOW);
   digitalWrite(pin2_, HIGH); 
 }
