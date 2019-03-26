@@ -5,9 +5,9 @@
 class irArray {
     private:
         int pitch_;
-        int pins_[];
+        int pins_[NUM_SENSORS];
         int numSensors;
-        float calib_from_vals[NUM_SENSORS*2];
+        float calib_from_vals[CALIB_ARRAY_SIZE];
 
 
     public:

@@ -14,6 +14,7 @@
 #define IR8_PIN A7
 #define IR9_PIN A8
 #define NUM_SENSORS 5
+#define CALIB_ARRAY_SIZE 10
 
 #define PITCH 4 //distance between IR sensors in mm
 #define CALIB_TO_LOW 1 //low value we want to map ir readings to
