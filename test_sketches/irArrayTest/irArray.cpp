@@ -10,22 +10,27 @@ irArray::irArray(int pins[], int pitch) {
     //Serial.print(NUM_SENSORS);
     pitch_ = pitch;
 
-    for(int i = 0; i <= numSensors; i++) {
+    for(int i = 0; i < numSensors; i++) {
         
         pins_[i] = pins[i];
-        //Serial.print(pins_[i]);
-        //Serial.print("\n");
+        Serial.print(pins_[i]);
+        Serial.print("\n");
     }
 }
 
 float irArray::interpolate(float irVal[]) {
+    
     //interpolation code
     double num = 0;
     double den = 0;
 
-    for(int i = 0; i < int(numSensors/2); i++) {
-        num += (pitch_*((numSensors/2)-i)*(irVal[numSensors-i]-irVal[i]));
+    for(int i = 0; i < numSensors; i++) {
         den += irVal[i];
+    }
+    den -= irVal[2]; //exclude middle sensor
+
+    for(int i = 0; i < int(numSensors/2); i++){
+      num += (int(numSensors/2)-i)*PITCH*(irVal[numSensors-i-1]-irVal[i]);
     }
 
    return num/den;
@@ -33,7 +38,7 @@ float irArray::interpolate(float irVal[]) {
 
 float* irArray::read() {
     float irVal[numSensors];
-    Serial.print(numSensors);
+    //Serial.print(numSensors);
     for(int i = 0; i < numSensors; i++) {
         irVal[i] = analogRead(pins_[i]);
         //Serial.print(irVal[i]);
@@ -48,7 +53,7 @@ float* irArray::read() {
 
 void irArray::calibrate() {
 
-    //Serial.print("hello\n");
+    Serial.print("hello\n");
     
     //Serial.print("hi\n");
     int startTime = millis();
@@ -62,7 +67,7 @@ void irArray::calibrate() {
     }
 
     while((currentTime - startTime) < CALIB_TIME) {
-        Serial.print("hi\n");
+        //Serial.print("hi\n");
         for(int i = 0; i < numSensors; i+=2) {
             float current_value = analogRead(pins_[i]);
             if(current_value < calib_from_vals[i]) {

@@ -16,7 +16,7 @@ irArray test(pins, PITCH);
 
 void setup() {
   Serial.begin(9600);
-
+  Serial.println(A0);
   int* pins = NULL;
   pins = new int[NUM_SENSORS];
   pins[0] = IR1_PIN;
@@ -27,11 +27,17 @@ void setup() {
   for (int i = 0; i < NUM_SENSORS; i++){
     pinMode(pins[i], INPUT);
   }
-  irArray test(pins, PITCH);
+  irArray test(pins, PITCH); //irArray test object
   
   
   test.calibrate();
-  delete[] pins;
+  Serial.println(test.get_calib()[0]); //first pin lower bound
+  Serial.println(test.get_calib()[1]); //first pin upper bound
+
+   
+
+  
+  //delete[] pins;
 
   /*
   for (int i = 0; i < 10; i++){
@@ -40,7 +46,20 @@ void setup() {
   }
   */
 
-  //test.read();
+  float* irVal = new float[NUM_SENSORS];
+  int startTime = millis();
+   int currentTime = millis();
+
+   while(currentTime-startTime<10000){
+    irVal = test.read();
+    Serial.println(test.interpolate(irVal));
+    for(int i=0; i<NUM_SENSORS;i++){
+    Serial.println(irVal[i]);
+    }
+    currentTime = millis();
+    delay(100);
+   }
+  
 
 /*  
   for (int i = 0; i < 5; i++){
