@@ -1,4 +1,4 @@
-int PWMOutputPin1 = 5; //only some pins on the Arduino can be used for PWM
+int PWMOutputPin1 = 9; //only some pins on the Arduino can be used for PWM
 int PWMOutputPin2 = 11;
 
 //AO-A5 only work
@@ -11,11 +11,11 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  analogWrite(PWMOutputPin1, 50);
-  digitalWrite(A2, LOW);
-  digitalWrite(A3, HIGH);
-  analogWrite(PWMOutputPin2, 50);
-  digitalWrite(A4, LOW);
-  digitalWrite(A5, HIGH);
+  analogWrite(PWMOutputPin1, 150); 
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
+  analogWrite(PWMOutputPin2, 150);
+  digitalWrite(2, LOW);
+  digitalWrite(3, HIGH);
   delay(1000);  
 }

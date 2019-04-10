@@ -13,6 +13,9 @@ irArray::irArray(int pins[], int pitch) {
     for(int i = 0; i < numSensors; i++) {
         
         pins_[i] = pins[i];
+
+        pinMode(pins_[i], INPUT);
+        
         //Serial.print(pins_[i]);
         //Serial.print("\n");
     }
@@ -37,7 +40,7 @@ float irArray::interpolate(float irVal[]) {
 }
 
 float* irArray::read() {
-    float irVal[numSensors];
+    
     //Serial.print(numSensors);
     for(int i = 0; i < numSensors; i++) {
         irVal[i] = analogRead(pins_[i]);

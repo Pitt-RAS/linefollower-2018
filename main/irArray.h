@@ -8,6 +8,7 @@ class irArray {
         int pins_[NUM_SENSORS];
         int numSensors;
         float calib_from_vals[CALIB_ARRAY_SIZE];
+        float irVal[NUM_SENSORS];
 
 
     public:

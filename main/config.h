@@ -22,13 +22,13 @@
 #define CALIB_TIME 5000 //how long we want to calibrate for
 
 //Motor pins
-#define PWM_PIN_1 A0
-#define PWM_PIN_2 A1
-#define MOTOR_L_1 D4
-#define MOTOR_L_2 D5
-#define MOTOR_R_1 D2
-#define MOTOR_R_2 D3
-#define MAX_SPEED 255
+#define PWM_PIN_1 9
+#define PWM_PIN_2 11
+#define MOTOR_L_1 4 // D4
+#define MOTOR_L_2 5 // D5
+#define MOTOR_R_1 2 // D2
+#define MOTOR_R_2 3 // D3
+#define MAX_SPEED 50
 
 //Controller parameters
 #define K_P 1
