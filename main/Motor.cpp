@@ -15,8 +15,7 @@ Motor::Motor(int pin1, int pin2, int pwm_pin){
    pinMode(pwm_pin_, OUTPUT);
 }
 
-void Motor::output(int dif, int dir)
-{
+void Motor::output(int dif, int dir){
   // write speed and direction to pins
 
   // dir = 0 --> spin forward

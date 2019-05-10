@@ -9,7 +9,6 @@ Motor right_motor(MOTOR_R_1, MOTOR_R_2, PWM_PIN_2);
 
 // declare variables
 int ir_pins[] = {IR1_PIN, IR3_PIN, IR5_PIN, IR7_PIN, IR9_PIN};
-float* ir_values;
 float current_position;
 float speed_diff;
 float speed_left;
@@ -67,7 +66,7 @@ void loop() {
 
   // read from the IR array
   ir_array.read();
-
+  
   // calculate current position over the black line with the interpolate function
   current_position = ir_array.interpolate();
 

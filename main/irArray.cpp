@@ -65,6 +65,7 @@ float irArray::interpolate() {
     for(int i = 0; i < numSensors; i++) {
         den += irVal[i];
     }
+    den -= irVal[int(numSensors/2)];
 
     for(int i = 0; i < int(numSensors/2); i++){
         num += (int(numSensors/2)-i)*pitch_*(irVal[numSensors-i-1]-irVal[i]);

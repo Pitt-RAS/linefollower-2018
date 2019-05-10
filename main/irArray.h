@@ -11,10 +11,10 @@ class irArray {
       float irVal[NUM_SENSORS];
       
   public:
-      irArray::irArray(int pins[], int pitch);
-      float irArray::interpolate(float irVal[]);
-      void irArray::read();
-      void irArray::calibrate();
+      irArray(int pins[], int pitch);
+      float interpolate(float irVal[]);
+      void read();
+      void calibrate();
 };
 
 #endif
