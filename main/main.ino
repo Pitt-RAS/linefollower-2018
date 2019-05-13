@@ -25,40 +25,7 @@ void setup() {
   Serial.begin(9600);
 
   // start by running the calibration function
-  // and move the robot back and forth over the black line by hand
   ir_array.calibrate();
-
-
-  // here we tried to have the robot spin back and forth by itself but we couldn't quite get it to work how we wanted
-  /*
-  int startTime = millis();
-  int currentTime = millis();
-  
-  while(currentTime - startTime < 5000){
-    left_motor.output(50, LOW);
-    right_motor.output(50, LOW);
-    currentTime = millis();
-  }
-  startTime = millis();
-  while(currentTime - startTime < 100){
-    left_motor.output(25, LOW);
-    right_motor.output(50, HIGH);
-    currentTime = millis();
-  }
-  startTime = millis();
-  while(currentTime - startTime < 100){
-    left_motor.output(25, HIGH);
-    right_motor.output(50, LOW);
-    currentTime =s millis();
-  }
-  
-  startTime = millis();
-  while(currentTime - startTime < 50){
-    left_motor.output(25, LOW);
-    right_motor.output(50, HIGH);
-    currentTime = millis();
-  }
-  */
 
 }
 

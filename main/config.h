@@ -15,7 +15,7 @@
 //#define IR8_PIN A7
 #define IR9_PIN A6
 
-// number of individual IR's we are using the size of the calibration array 
+// number of individual IR's we are using and the size of the calibration array 
 #define NUM_SENSORS 5
 #define CALIB_ARRAY_SIZE 10
 

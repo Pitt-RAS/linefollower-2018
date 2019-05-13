@@ -15,13 +15,13 @@ Motor::Motor(int pin1, int pin2, int pwm_pin){
    pinMode(pwm_pin_, OUTPUT);
 }
 
-void Motor::output(int dif, int dir){
+void Motor::output(int spd, int dir){
   // write speed and direction to pins
 
   // dir = 0 --> spin forward
   // dir = 1 --> spin backward
 
-  analogWrite(pwm_pin_, dif);     
+  analogWrite(pwm_pin_, spd);     
   digitalWrite(pin1_, dir);     
   digitalWrite(pin2_, 1-dir);  
 }
